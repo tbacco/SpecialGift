@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="welcome-styles.css">
+</head>
+<body>
+    <div class="welcome-wrapper">
+        <!-- Image Section -->
+        <div class="image-section">
+            <!-- Message Icon above the image -->
+            <div class="message-icon" onclick="showMessage()">
+                <img src="images/icon.png" alt="Message Icon" class="icon-image">
+            </div>
+            <!-- Image Slider Container -->
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide fade">
+                        <img src="images/hihi 2.JPG" alt="Image 1">
+                    </div>
+                    <div class="slide fade">
+                        <img src="images/IMG_0246 2.JPG" alt="Image 2">
+                    </div>
+                    <div class="slide fade">
+                        <img src="images/ext.png" alt="OOOPPSSS... naubusan na ako, kaya send ka na ng mga cute pics mo ;>">
+                    </div>
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+        </div>
+
+        <!-- Audio Section with Song Title -->
+        <div class="audio-section">
+            <!-- Song title as a label for the audio -->
+            <label for="audio-player" class="song-title">One Direction - They Don't Know About Us</label>
+            <audio id="audio-player" controls>
+                <source src="audio/One Direction - They Don't Know About Us (Audio).mp3" type="audio/mpeg"> <!-- Replace with your music file -->
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Popup Message -->
+        <div id="messagePopup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeMessage()">&times;</span>
+                <div class="message-text">
+                    <p>
+                        To my Coffee Crumble, <br><br>
+                        I hope you will like this simple gift that I made. It may not be that expensive monetarily, but I hope you find it priceless. 
+                        Just like you are, an invaluable person who is very special to me. You may think that the TikTok videos I sent were all just a ploy to get your attention, but they were not. I meant every single one of them. Grabe ang screening process non, and iba nasa favorites ko pa naghihintay lang ng tamang oras para i-send. Eheh.
+                        <br><br>
+                        Exactly 7 months ago, you asked me if I'm sure about you, and we agreed that I would take my time to think about it. 
+                        Well, here we are now... And YES, I'm sure. This past 7 months, I have been constantly questioning myself, "Am I really sure?" 
+                        And every time, the answer is always yes. Like what I said at the time, I don't see myself with anyone else—you are the only one I want.
+                        <br><br>
+                        I hope this gift reflects even a portion of my intentions. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function changeSlide(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slide");
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex].style.display = "block";  
+        }
+
+        function showMessage() {
+            document.getElementById('messagePopup').style.display = 'flex';
+        }
+
+        function closeMessage() {
+            document.getElementById('messagePopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

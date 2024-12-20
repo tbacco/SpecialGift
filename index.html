@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive PIN Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="images/chibi-couple.avif" alt="Secure Access" class="side-image">
+        </div>
+
+        <!-- PIN Input Section -->
+        <div class="container">
+            <h1 class="passcode-text">Enter Passcode</h1>
+            <form id="pinForm" onsubmit="checkPin(event)">
+                <div class="pin-input">
+                    <input type="text" id="pin1" maxlength="1" class="pin-field" readonly aria-label="First digit">
+                    <input type="text" id="pin2" maxlength="1" class="pin-field" readonly aria-label="Second digit">
+                    <input type="text" id="pin3" maxlength="1" class="pin-field" readonly aria-label="Third digit">
+                    <input type="text" id="pin4" maxlength="1" class="pin-field" readonly aria-label="Fourth digit">
+                </div>
+                <div class="number-pad">
+                    <button type="button" onclick="addToPin('1')">1</button>
+                    <button type="button" onclick="addToPin('2')">2</button>
+                    <button type="button" onclick="addToPin('3')">3</button>
+                    <button type="button" onclick="addToPin('4')">4</button>
+                    <button type="button" onclick="addToPin('5')">5</button>
+                    <button type="button" onclick="addToPin('6')">6</button>
+                    <button type="button" onclick="addToPin('7')">7</button>
+                    <button type="button" onclick="addToPin('8')">8</button>
+                    <button type="button" onclick="addToPin('9')">9</button>
+                    <button type="button" onclick="clearPin()">C</button>
+                    <button type="button" onclick="addToPin('0')">0</button>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </form>
+            <p id="error" class="error" role="alert"></p>
+        </div>
+    </div>
+
+    <script>
+        let currentField = 1;
+
+        function addToPin(digit) {
+            if (currentField <= 4) {
+                const pinField = document.getElementById(`pin${currentField}`);
+                if (pinField.value === "") {
+                    pinField.value = digit;
+                    currentField++;
+                }
+            }
+        }
+
+        function clearPin() {
+            if (currentField > 1) {
+                currentField--;
+                const pinField = document.getElementById(`pin${currentField}`);
+                pinField.value = "";
+            }
+            document.getElementById('error').innerText = ""; // Clear error message
+        }
+
+        function checkPin(event) {
+            event.preventDefault(); // Prevent form submission
+            const pin1 = document.getElementById('pin1').value;
+            const pin2 = document.getElementById('pin2').value;
+            const pin3 = document.getElementById('pin3').value;
+            const pin4 = document.getElementById('pin4').value;
+            const enteredPin = pin1 + pin2 + pin3 + pin4;
+            const correctPin = "0525"; // Set your desired PIN
+
+            if (enteredPin === correctPin) {
+                window.location.href = "welcome.html";
+            } else {
+                document.getElementById('error').innerText = "Incorrect PIN. Please try again.";
+                clearAllFields();
+            }
+        }
+
+        function clearAllFields() {
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`pin${i}`).value = "";
+            }
+            currentField = 1;
+        }
+    </script>
+</body>
+</html>

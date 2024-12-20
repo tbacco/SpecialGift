@@ -1,0 +1,136 @@
+/* Overall body styling */
+body {
+    background-color: #F3D0D7; /* Change to your desired background color */
+    font-family: Arial, sans-serif; /* Set a default font for the body */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+/* Wrapper for image and container */
+.main-wrapper {
+    display: flex; /* Align elements horizontally */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    height: 100vh; /* Full viewport height */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    border-radius: 10px; /* Optional: rounded corners */
+    background-color: #ff4d6d; /* Optional: background color for the wrapper */
+}
+
+@media (min-width: 768px){
+    .main-wrapper{
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+/* Image styling */
+.image-container {
+    margin-bottom: 10px; /* Space between image and container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.side-image {
+    max-width: 100%; /* Responsive image */
+    height: 200px; /* Maintain aspect ratio */
+    object-fit: cover;
+}
+
+.passcode-text {
+    font-family: 'Arial', sans-serif; /* Change to your desired font family */
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #ffffff; /* Change to your desired color (e.g., a shade of orange) */
+    margin-bottom: 10px; /* Space between text and input field */
+    text-align: center; /* Center align the text */
+}
+
+/* Container for the passcode input */
+.passcode-container {
+    position: relative; /* Set position relative for absolute positioning of the image */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #ff758f; /* Light background for contrast */
+    border-radius: 10px; /* Optional rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Passcode text styling */
+.passcode-text {
+    font-size: 18px; /* Increase font size for visibility */
+    margin-bottom: 10px; /* Space between text and input field */
+    text-align: center; /* Center align the text */
+}
+
+/* Passcode input field styling */
+.pin-input {
+    display: flex; /* Align input fields in a row */
+    justify-content: center; /* Center input fields */
+    margin-bottom: 20px; /* Space below input fields */
+}
+
+.pin-field {
+    width: 40px; /* Fixed width for each input */
+    height: 40px; /* Fixed height for each input */
+    font-size: 24px; /* Larger font for visibility */
+    text-align: center; /* Center text in input */
+    border: 2px solid #FFEECC; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    margin: 0 5px; /* Space between input fields */
+}
+
+/* Number pad styling */
+.number-pad {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 10px; /* Space between buttons */
+}
+
+/* Button styling */
+.number-pad button {
+    padding: 15px; /* Padding for buttons */
+    font-size: 18px; /* Font size for buttons */
+    border: 2px solid #FFEECC; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ff758f; /* Button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.number-pad button:hover {
+    background-color: #ff758f; /* Darker color on hover */
+}
+
+/* Submit button styling */
+.submit-button {
+    grid-column: span 3; /* Span across all columns */
+    border: 2px solid #FFEECC; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ff758f; /* Green color */
+
+}
+
+/* Error message styling */
+.error {
+    color: red; /* Red color for error messages */
+    text-align: center; /* Center align error message */
+}
+
+/* Responsive Design: Adjust layout for smaller screens */
+@media (max-width: 768px) {
+    .passcode-container {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .passcode-text {
+        font-size: 16px; /* Adjust font size for mobile */
+    }
+
+    .pin-field {
+        width: 30px; /* Adjust width for mobile */
+        height: 30px; /* Adjust height for mobile */
+        font-size: 20px; /* Adjust font size for mobile */
+    }
+
+    .number-pad button {
+        padding: 10px; /* Adjust padding for buttons */
+        font-size: 16px; /* Adjust font size for buttons */
+    }
+}
